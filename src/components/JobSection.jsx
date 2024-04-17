@@ -37,14 +37,16 @@ const JobSection = () => {
         <Paper
           key={job.id}
           sx={{
-            width: "85%",
+            width: isSmallScreen ? "90%" : "85%",
             padding: "20px",
             display: "flex",
+            flexDirection: isSmallScreen ? "column" : "row",
             alignItems: "center",
             justifyContent: "space-between",
             margin: "auto",
             bgcolor: "#e0e0e0",
             userSelect: "none",
+            marginBottom: "1rem",
           }}
           elevation={3}
         >
@@ -52,18 +54,25 @@ const JobSection = () => {
             <img
               src={job.companyLogo}
               alt="Company Logo"
-              style={{ width: "70px", height: "70px", borderRadius: "50%" }}
+              style={{
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                marginRight: isSmallScreen && "1rem",
+              }}
             />
 
-            <Typography variant="h6" sx={{ ml: 2 }}>
-              {job.jobTitle}
-              <Box component={"div"} sx={{ color: "red", fontSize: "1rem" }}>
-                Salary:{job.salary}$ / Year
-              </Box>
-            </Typography>
+            <Box sx={{ marginLeft: isSmallScreen ? 0 : 2 }}>
+              <Typography variant="h6">
+                {job.jobTitle}
+                <Box component={"div"} sx={{ color: "red", fontSize: "1rem" }}>
+                  Salary: {job.salary}$ / Year
+                </Box>
+              </Typography>
+            </Box>
           </Box>
 
-          <Stack direction={"row"} gap={2}>
+          <Stack direction={"row"} gap={2} sx={{ marginTop: "1rem" }}>
             <Box sx={detailsSyle}>{job.partOrFullTime}</Box>
             <Box sx={detailsSyle}>{job.benefits}</Box>
             <Box sx={detailsSyle}>{job.region}</Box>
@@ -73,6 +82,7 @@ const JobSection = () => {
             direction={isSmallScreen ? "column" : "row"}
             gap={isSmallScreen ? 2 : 3}
             alignItems={"center"}
+            sx={{ marginTop: isSmallScreen ? "1rem" : 0 }}
           >
             <Typography sx={{ fontSize: "1rem", fontWeight: "600" }}>
               {job.dateOfThePost}
