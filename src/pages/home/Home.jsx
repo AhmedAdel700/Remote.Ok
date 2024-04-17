@@ -6,6 +6,7 @@ import bgPic from "../../../public/images/bgPic.jpg";
 import { useEffect, useMemo, useState } from "react";
 
 import FilterBar from "../../components/FilterBar";
+import JobSection from "../../components/JobSection";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -63,7 +64,7 @@ export default function Home() {
     <>
       <Box
         sx={{
-          width: "100vw",
+          maxWidth: "100vw",
           height: "calc(100vh - 64px)",
           backgroundImage: `url(${bgPic})`,
           backgroundSize: "cover",
@@ -137,6 +138,8 @@ export default function Home() {
       </Box>
 
       <FilterBar />
+
+      <JobSection />
     </>
   );
 }

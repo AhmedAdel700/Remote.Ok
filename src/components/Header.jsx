@@ -80,7 +80,7 @@ export default function Header() {
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right",
+        horizontal: "left",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -95,9 +95,13 @@ export default function Header() {
         >
           Health Insurance
         </Button>
-        <Button variant="text" color="error">
-          Post A Remote Job
-        </Button>
+
+        <Link to="hire">
+          <Button variant="text" color="error">
+            Post A Remote Job
+          </Button>
+        </Link>
+
         <Link to="login">
           <Button
             variant="text"
@@ -146,6 +150,7 @@ export default function Header() {
           </Search>
 
           <Box sx={{ flexGrow: 1 }} />
+
           <Box sx={{ display: { xs: "none", md: "flex", gap: "0.7rem" } }}>
             <Button
               variant="contained"
@@ -157,13 +162,17 @@ export default function Header() {
             >
               Health Insurance
             </Button>
-            <Button
-              variant="contained"
-              color="error"
-              sx={{ textTransform: "capitalize" }}
-            >
-              Post A Remote Job
-            </Button>
+
+            <Link to="hire">
+              <Button
+                variant="contained"
+                color="error"
+                sx={{ textTransform: "capitalize" }}
+              >
+                Post A Remote Job
+              </Button>
+            </Link>
+
             <Link to="login">
               <Button
                 variant="contained"
