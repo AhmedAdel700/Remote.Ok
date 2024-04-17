@@ -22,6 +22,8 @@ const JobSection = () => {
     bgcolor: "red",
     color: "white",
     padding: "10px 15px",
+    textAlign: "center",
+    fontSize: isSmallScreen && "0.8rem",
   };
 
   return (
